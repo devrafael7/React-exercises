@@ -4,12 +4,13 @@ type ButtonProps = {
     type?: "button" | "submit" | "reset";
     className?: string;
     children: ReactNode;
+    onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ( {type = "button", className = "", children} ) => {
+const Button: React.FC<ButtonProps> = ( {type = "button", className = "", children, onClick} ) => {
 
     return (
-        <button type={type} className={`flex rounded-full cursor-pointer justify-center items-center font-semibold ${className}`}>
+        <button onClick={onClick} type={type} className={`flex rounded-full cursor-pointer justify-center items-center font-semibold ${className}`}>
             {children}
         </button>
 
