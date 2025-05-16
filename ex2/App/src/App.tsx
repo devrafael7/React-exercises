@@ -3,17 +3,29 @@ import { useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [value, setValue] = useState("");
+  const [text, setText] = useState("Hello world!");
+  const [inputText, setInputText] = useState("Hi!") 
   
   return (
     <>
-      <div className='p-40'>
-        <h1 className='text-4xl'>{count}</h1>
-        <button onClick={()=> setCount(count + 1)} type="button">
-          Set count
+      <div className='w-full min-h-screen bg-gray-100 flex flex-col items-center pt-32'>
+        <h1>
+          Count {count}
+        </h1>
+        <button onClick={()=> setCount(count +1)} className='cursor-pointer w-32 h-7 text-center rounded-full bg-blue-500 text-white' type="button">
+          Set Count
         </button>
-        <input onChange={(e)=> setValue(e.target.value)} className='mx-10 border border-black border-solid rounded-sm px-3 py-2' placeholder='text' type="text" />
-        <h1 className='mx-5 text-xl'>{value}</h1>
+        <h3 className='mt-10'>
+          {text}
+        </h3>
+        <button onClick={()=> setText("You guys good?")} className='cursor-pointer w-32 h-7 text-center rounded-full bg-emerald-500 text-white' type="button">
+          Set Text
+        </button>
+
+         <input onChange={(e)=> setInputText(e.target.value)} className='mt-10 text-center border border-solid border-black rounded-md py-1' type="text" name="" placeholder='Text value right here' id="" />
+         <h3>
+          {inputText}
+        </h3>
       </div>
     </> 
   ) 
