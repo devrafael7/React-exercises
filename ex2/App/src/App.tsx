@@ -4,7 +4,9 @@ import { useState } from 'react';
 function App() {
   const [count, setCount] = useState(0);
   const [text, setText] = useState("Hello world!");
-  const [inputText, setInputText] = useState("Hi!") 
+  const [inputText, setInputText] = useState("Hi!"); 
+  const [isVisible, setIsVisible] = useState(true);
+  const objects = ["fork", "ball", "cap", "cup"];
   
   return (
     <>
@@ -26,7 +28,19 @@ function App() {
          <h3>
           {inputText}
         </h3>
+
+        <h3 className='mt-10'>
+          Visible
+        </h3>
+          <button onClick={()=> setIsVisible(!isVisible)} className='cursor-pointer w-32 h-7 text-center rounded-full bg-red-500 text-white' type="button">
+          Set Visible
+        </button>
       </div>
+      <h1>
+        {objects.map((currentObject, index) => (
+          <h3 key={index}>{currentObject}</h3>
+        ))}
+      </h1>
     </> 
   ) 
 }
